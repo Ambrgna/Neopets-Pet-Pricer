@@ -22,15 +22,7 @@ export class ItemsService {
     let json = JSON.stringify({
           name: items
         });
-
-    return this.http.post(this.apiUrl, json, this.httpOptions)
-    .do(function (res: any) {
-      if (res.status === 200) {
-          const itemData = JSON.parse(res.responseText);
-          // priceSDB(itemData);
-      }
-      else return console.error('[itemdb] Failed to fetch data', res);
-    });
+    return this.http.post(this.apiUrl, json, this.httpOptions);
   }
   
 }

@@ -1,1 +1,21 @@
-<p>items works!</p>
+<br>
+<div>
+    <form>
+        <label>Neopet</label>
+        <br>
+        <select #pets (change)="getPet(pets.value)"> 
+            <option value="default" hidden>----</option> 
+            <option *ngFor="let p of neopets" [value]="p"> 
+                {{p}} 
+            </option> 
+        </select> 
+    </form>
+</div>
+  <br>
+<div class="jnflex-grid small-3-per-row large-5-per-row text-center word-wrap-break-word">
+    <app-item
+    *ngFor="let item of results"
+     class="col-xs-12 col-sm-4"
+     [item]="item">
+    </app-item>
+</div>

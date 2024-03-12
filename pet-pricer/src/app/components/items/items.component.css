@@ -1,0 +1,24 @@
+.word-wrap-break-word {
+    word-wrap: break-word;
+}
+.jnflex-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+}
+.text-center {
+    text-align: center !important;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+}
+div {
+    display: block;
+}
