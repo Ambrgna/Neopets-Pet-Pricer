@@ -23,6 +23,7 @@ export class ItemsComponent {
   neopets: string[] = ['Acara', 'Aisha', 'Blumaroo', 'Bori', 'Bruce', 'Buzz', 'Chia', 'Chomby', 'Cybunny', 'Draik', 'Elephante', 'Eyrie', 'Flotsam', 'Gelert', 'Gnorbu', 'Grarrl', 'Grundo', 'Hissi', 'Ixi', 'Jetsam', 'Jubjub', 'Kacheek', 'Kau', 'Kiko', 'Koi', 'Korbat', 'Kougra', 'Krawk', 'Kyrii', 'Lenny', 'Lupe', 'Lutari', 'Meerca', 'Moehog', 'Mynci', 'Nimmo', 'Ogrin', 'Peophin', 'Poogle', 'Pteri', 'Quiggle', 'Ruki', 'Scorchio', 'Shoyru', 'Skeith', 'Techo', 'Tonu', 'Tuskaninny', 'Uni', 'Usul', 'Vandagyre', 'Wocky', 'Xweetok', 'Yurble', 'Zafara'];
   pet: string = '';
   results: Item[] = [];
+  sorted: Item[] = [];
 
   constructor(private service: ItemsService){
     
@@ -30,6 +31,7 @@ export class ItemsComponent {
 
   public async getPet(pet:String){   
     this.results = [];
+    this.sorted = [];
     console.log(pet);
 
     if(pet!=null){    
@@ -37,9 +39,9 @@ export class ItemsComponent {
       await this.postData(this.plushieData(pet));
       await this.postData(this.transmogsData(pet));
 
-      this.results.sort((a:Item,b:Item) => this.sortByPrice(a.price.value,b.price.value));
+      this.sorted=this.results.sort((a:Item,b:Item) => this.sortByPrice(a.price.value,b.price.value));
       
-      console.log(this.results);
+      console.log(this.sorted);
     }
   }
 
